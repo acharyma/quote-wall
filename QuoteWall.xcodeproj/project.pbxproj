@@ -3,27 +3,39 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70680433C22DBFC2BC7BFA6C /* Pods_QuoteWall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B794AEF15E890E4A671D48E /* Pods_QuoteWall.framework */; };
+		7E7437562574731300A5CCD1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E7437552574731300A5CCD1 /* GoogleService-Info.plist */; };
+		7E74375C2574833000A5CCD1 /* QuoteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */; };
+		7E74375F2574840700A5CCD1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74375E2574840700A5CCD1 /* Quote.swift */; };
+		7E74376225748FEB00A5CCD1 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74376125748FEB00A5CCD1 /* Quotes.swift */; };
 		7ED339D325746E13004C29B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D225746E13004C29B4 /* AppDelegate.swift */; };
 		7ED339D525746E13004C29B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D425746E13004C29B4 /* SceneDelegate.swift */; };
-		7ED339D725746E13004C29B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D625746E13004C29B4 /* ViewController.swift */; };
+		7ED339D725746E13004C29B4 /* QuotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D625746E13004C29B4 /* QuotesListViewController.swift */; };
 		7ED339DA25746E13004C29B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED339D825746E13004C29B4 /* Main.storyboard */; };
 		7ED339DC25746E20004C29B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7ED339DB25746E20004C29B4 /* Assets.xcassets */; };
 		7ED339DF25746E20004C29B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ED339DD25746E20004C29B4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4918EF5B15B49146AAC0779F /* Pods-QuoteWall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteWall.debug.xcconfig"; path = "Target Support Files/Pods-QuoteWall/Pods-QuoteWall.debug.xcconfig"; sourceTree = "<group>"; };
+		7E7437552574731300A5CCD1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableViewController.swift; sourceTree = "<group>"; };
+		7E74375E2574840700A5CCD1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		7E74376125748FEB00A5CCD1 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
 		7ED339CF25746E13004C29B4 /* QuoteWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED339D225746E13004C29B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED339D425746E13004C29B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7ED339D625746E13004C29B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7ED339D625746E13004C29B4 /* QuotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListViewController.swift; sourceTree = "<group>"; };
 		7ED339D925746E13004C29B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7ED339DB25746E20004C29B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7ED339DE25746E20004C29B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7ED339E025746E20004C29B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B794AEF15E890E4A671D48E /* Pods_QuoteWall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuoteWall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A59908A3B7A9FC258E6F3E /* Pods-QuoteWall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuoteWall.release.xcconfig"; path = "Target Support Files/Pods-QuoteWall/Pods-QuoteWall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70680433C22DBFC2BC7BFA6C /* Pods_QuoteWall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FE7DAD8D235EAA3D250F725 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4918EF5B15B49146AAC0779F /* Pods-QuoteWall.debug.xcconfig */,
+				D8A59908A3B7A9FC258E6F3E /* Pods-QuoteWall.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7ED339C625746E13004C29B4 = {
 			isa = PBXGroup;
 			children = (
 				7ED339D125746E13004C29B4 /* QuoteWall */,
 				7ED339D025746E13004C29B4 /* Products */,
+				1FE7DAD8D235EAA3D250F725 /* Pods */,
+				A3D05155519EA527EEE88679 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +82,25 @@
 			children = (
 				7ED339D225746E13004C29B4 /* AppDelegate.swift */,
 				7ED339D425746E13004C29B4 /* SceneDelegate.swift */,
-				7ED339D625746E13004C29B4 /* ViewController.swift */,
+				7E74375E2574840700A5CCD1 /* Quote.swift */,
+				7E74376125748FEB00A5CCD1 /* Quotes.swift */,
+				7ED339D625746E13004C29B4 /* QuotesListViewController.swift */,
+				7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */,
 				7ED339D825746E13004C29B4 /* Main.storyboard */,
 				7ED339DB25746E20004C29B4 /* Assets.xcassets */,
 				7ED339DD25746E20004C29B4 /* LaunchScreen.storyboard */,
 				7ED339E025746E20004C29B4 /* Info.plist */,
+				7E7437552574731300A5CCD1 /* GoogleService-Info.plist */,
 			);
 			path = QuoteWall;
+			sourceTree = "<group>";
+		};
+		A3D05155519EA527EEE88679 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B794AEF15E890E4A671D48E /* Pods_QuoteWall.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7ED339E325746E20004C29B4 /* Build configuration list for PBXNativeTarget "QuoteWall" */;
 			buildPhases = (
+				3CEDCE184BCEE6FA9BFACF6C /* [CP] Check Pods Manifest.lock */,
 				7ED339CB25746E13004C29B4 /* Sources */,
 				7ED339CC25746E13004C29B4 /* Frameworks */,
 				7ED339CD25746E13004C29B4 /* Resources */,
+				D0D33E3669C42F5C9C7C2D36 /* [CP] Embed Pods Frameworks */,
+				AAB00ACFECAA81B8BC718529 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ED339DF25746E20004C29B4 /* LaunchScreen.storyboard in Resources */,
+				7E7437562574731300A5CCD1 /* GoogleService-Info.plist in Resources */,
 				7ED339DC25746E20004C29B4 /* Assets.xcassets in Resources */,
 				7ED339DA25746E13004C29B4 /* Main.storyboard in Resources */,
 			);
@@ -132,14 +172,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CEDCE184BCEE6FA9BFACF6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuoteWall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAB00ACFECAA81B8BC718529 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0D33E3669C42F5C9C7C2D36 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QuoteWall/Pods-QuoteWall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7ED339CB25746E13004C29B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED339D725746E13004C29B4 /* ViewController.swift in Sources */,
+				7ED339D725746E13004C29B4 /* QuotesListViewController.swift in Sources */,
 				7ED339D325746E13004C29B4 /* AppDelegate.swift in Sources */,
+				7E74376225748FEB00A5CCD1 /* Quotes.swift in Sources */,
 				7ED339D525746E13004C29B4 /* SceneDelegate.swift in Sources */,
+				7E74375F2574840700A5CCD1 /* Quote.swift in Sources */,
+				7E74375C2574833000A5CCD1 /* QuoteDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +385,7 @@
 		};
 		7ED339E425746E20004C29B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4918EF5B15B49146AAC0779F /* Pods-QuoteWall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +405,7 @@
 		};
 		7ED339E525746E20004C29B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8A59908A3B7A9FC258E6F3E /* Pods-QuoteWall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
