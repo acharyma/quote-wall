@@ -12,6 +12,9 @@
 		7E74375C2574833000A5CCD1 /* QuoteDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */; };
 		7E74375F2574840700A5CCD1 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74375E2574840700A5CCD1 /* Quote.swift */; };
 		7E74376225748FEB00A5CCD1 /* Quotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74376125748FEB00A5CCD1 /* Quotes.swift */; };
+		7E74379325799DCE00A5CCD1 /* UIBarButtonItem+hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74379225799DCE00A5CCD1 /* UIBarButtonItem+hide.swift */; };
+		7E7437B525799DF900A5CCD1 /* UIView+addBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7437B425799DF900A5CCD1 /* UIView+addBorder.swift */; };
+		7E7437B825799E2600A5CCD1 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7437B725799E2500A5CCD1 /* UIViewController+alert.swift */; };
 		7ED339D325746E13004C29B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D225746E13004C29B4 /* AppDelegate.swift */; };
 		7ED339D525746E13004C29B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D425746E13004C29B4 /* SceneDelegate.swift */; };
 		7ED339D725746E13004C29B4 /* QuotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED339D625746E13004C29B4 /* QuotesListViewController.swift */; };
@@ -26,6 +29,9 @@
 		7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDetailTableViewController.swift; sourceTree = "<group>"; };
 		7E74375E2574840700A5CCD1 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		7E74376125748FEB00A5CCD1 /* Quotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quotes.swift; sourceTree = "<group>"; };
+		7E74379225799DCE00A5CCD1 /* UIBarButtonItem+hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+hide.swift"; sourceTree = "<group>"; };
+		7E7437B425799DF900A5CCD1 /* UIView+addBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addBorder.swift"; sourceTree = "<group>"; };
+		7E7437B725799E2500A5CCD1 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		7ED339CF25746E13004C29B4 /* QuoteWall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuoteWall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ED339D225746E13004C29B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ED339D425746E13004C29B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +95,9 @@
 				7ED339D825746E13004C29B4 /* Main.storyboard */,
 				7ED339DB25746E20004C29B4 /* Assets.xcassets */,
 				7ED339DD25746E20004C29B4 /* LaunchScreen.storyboard */,
+				7E74379225799DCE00A5CCD1 /* UIBarButtonItem+hide.swift */,
+				7E7437B425799DF900A5CCD1 /* UIView+addBorder.swift */,
+				7E7437B725799E2500A5CCD1 /* UIViewController+alert.swift */,
 				7ED339E025746E20004C29B4 /* Info.plist */,
 				7E7437552574731300A5CCD1 /* GoogleService-Info.plist */,
 			);
@@ -239,7 +248,10 @@
 				7ED339D725746E13004C29B4 /* QuotesListViewController.swift in Sources */,
 				7ED339D325746E13004C29B4 /* AppDelegate.swift in Sources */,
 				7E74376225748FEB00A5CCD1 /* Quotes.swift in Sources */,
+				7E7437B825799E2600A5CCD1 /* UIViewController+alert.swift in Sources */,
 				7ED339D525746E13004C29B4 /* SceneDelegate.swift in Sources */,
+				7E7437B525799DF900A5CCD1 /* UIView+addBorder.swift in Sources */,
+				7E74379325799DCE00A5CCD1 /* UIBarButtonItem+hide.swift in Sources */,
 				7E74375F2574840700A5CCD1 /* Quote.swift in Sources */,
 				7E74375C2574833000A5CCD1 /* QuoteDetailTableViewController.swift in Sources */,
 			);
