@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 
 class QuoteDetailTableViewController: UITableViewController {
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var quoteTextView: UITextView!
     @IBOutlet weak var saidByTextField: UITextField!
@@ -21,6 +22,8 @@ class QuoteDetailTableViewController: UITableViewController {
     
     
     @IBOutlet weak var picker: UIPickerView!
+    
+    var flag = false
     
     var pickerData: [String] = [String]()
     
@@ -41,8 +44,6 @@ class QuoteDetailTableViewController: UITableViewController {
         pickerData = ["Music", "Movie", "Book", "TV", "Life", "Other"]
         selectedCategory = "Music" //default because if it isn't changed, it will be the first one
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +58,9 @@ class QuoteDetailTableViewController: UITableViewController {
         
         updateUserInterface()
     }
+    
+    
+    
     
     func changedText() {
         if titleTextField.text?.count == 0 || quoteTextView.text?.count == 0 || saidByTextField.text?.count == 0 {
@@ -117,7 +121,6 @@ class QuoteDetailTableViewController: UITableViewController {
             likeButton.isHidden = true
             dislikeButton.isHidden = true
             deleteButton.hide()
-//            TODO:- HIDE Thumbs Up and Down
         }
         else {
             if (quote.postingUserID == Auth.auth().currentUser?.uid || quote.postingUserID == "") { //review by current user
@@ -131,6 +134,7 @@ class QuoteDetailTableViewController: UITableViewController {
             }
             else { //quote posted by different user
                 print("quote postingUserID is \(quote.postingUserID) and currentUser is \(Auth.auth().currentUser?.uid)")
+                changeFlag()
                 saveBarButton.hide()
                 cancelBarButton.hide()
                 deleteButton.hide()
@@ -154,7 +158,20 @@ class QuoteDetailTableViewController: UITableViewController {
     
     }
     
-//    USE BELOW FOR THE FUNCTION -- if want to
+    func changeFlag() {
+        flag = true
+    }
+    
+    func shouldHideSection(section: Int) -> Bool {
+        switch section {
+        case 3:
+            return flag ? true : false
+
+        default:
+            return false
+        }
+    }
+    
     func addBordersToEditableObjects() {
         titleTextField.addBorder(width: 0.5, radius: 5.0, color: .black)
         quoteTextView.addBorder(width: 0.5, radius: 5.0, color: .black)
@@ -320,15 +337,9 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     
-//    @IBAction func saidByChanged(_ sender: UITextField) {
-        
-//    }
-    
     @IBAction func saidByChanged(_ sender: UITextField) {
         changedText()
     }
-    
-    
     
 }
 
@@ -355,3 +366,38 @@ extension QuoteDetailTableViewController: UIPickerViewDelegate, UIPickerViewData
     
     
 }
+
+extension QuoteDetailTableViewController {
+    // Hide Header(s)
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return shouldHideSection(section: section) ? 0.1: super.tableView(tableView, heightForHeaderInSection: section)
+    }
+    
+    //Hide footer
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return shouldHideSection(section: section) ? 0.1 : super.tableView(tableView, heightForFooterInSection: section)
+    }
+
+    // Hide rows in hidden sections
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return shouldHideSection(section: indexPath.section) ? 0: super.tableView(tableView, heightForRowAt: indexPath)
+    }
+
+    // Hide header text by making clear
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if shouldHideSection(section: section) {
+            let headerView = view as! UITableViewHeaderFooterView
+            headerView.textLabel!.textColor = UIColor.clear
+        }
+    }
+
+    // Hide footer text by making clear
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        if shouldHideSection(section: section) {
+            let footerView = view as! UITableViewHeaderFooterView
+            footerView.textLabel!.textColor = UIColor.clear
+        }
+    }
+}
+// got help from this wonderful stack overflow user: https://stackoverflow.com/questions/17761878/hide-sections-of-a-static-tableview
+
