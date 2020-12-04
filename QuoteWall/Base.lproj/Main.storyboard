@@ -104,6 +104,9 @@
                                                     <rect key="frame" x="20" y="4" width="374" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="titleChanged:" destination="biN-dm-srw" eventType="editingChanged" id="0eT-ag-wuk"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -156,6 +159,10 @@
                                                     <rect key="frame" x="20" y="4" width="374" height="34.5"/>
                                                     <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="saidByChanged:" destination="biN-dm-srw" eventType="editingChanged" id="4jm-yx-zH9"/>
+                                                        <action selector="saidByChanged:" destination="biN-dm-srw" eventType="valueChanged" id="RbS-9Y-6Xg"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

@@ -44,6 +44,26 @@ class QuoteDetailTableViewController: UITableViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if titleTextField.text?.count == 0 || saidByTextField.text?.count == 0 {
+            saveBarButton.hide()
+        }
+        else {
+            saveBarButton.show()
+        }
+    }
+    
+    func changedText() {
+        if titleTextField.text?.count == 0 || saidByTextField.text?.count == 0 {
+            saveBarButton.hide()
+        }
+        else {
+            saveBarButton.show()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
@@ -183,6 +203,13 @@ class QuoteDetailTableViewController: UITableViewController {
         if !userHasLiked() {
             quote.numOfLikes += 1
             quote.likedBy.append(Auth.auth().currentUser!.uid)
+            
+            if(userHasDisliked()) {
+                quote.numOfDislikes -= 1
+                counter = returnUserIndex(likeOrDislikeList: quote.dislikedBy)
+                quote.dislikedBy.remove(at: counter)
+            }
+            
             quote.saveData { success in
                 if success {
                     print("like saved")
@@ -194,11 +221,6 @@ class QuoteDetailTableViewController: UITableViewController {
         }
         else {
             quote.numOfLikes -= 1
-//            for index in 0..<quote.likedBy.count {
-//                if quote.likedBy[index] == Auth.auth().currentUser!.uid {
-//                    counter = index
-//                }
-//            }
             counter = returnUserIndex(likeOrDislikeList: quote.likedBy)
             quote.likedBy.remove(at: counter)
             quote.saveData { success in
@@ -211,6 +233,43 @@ class QuoteDetailTableViewController: UITableViewController {
             }
         }
         
+    }
+    
+    
+    @IBAction func dislikeButtonPressed(_ sender: UIButton) {
+        var counter: Int = -1
+        if !userHasDisliked() {
+            quote.numOfDislikes += 1
+            quote.dislikedBy.append(Auth.auth().currentUser!.uid)
+            
+            if userHasLiked() {
+                quote.numOfLikes -= 1
+                counter = returnUserIndex(likeOrDislikeList: quote.likedBy)
+                quote.likedBy.remove(at: counter)
+            }
+            
+            quote.saveData { success in
+                if success {
+                    print("dislike saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
+            }
+        }
+        else {
+            quote.numOfDislikes -= 1
+            counter = returnUserIndex(likeOrDislikeList: quote.dislikedBy)
+            quote.dislikedBy.remove(at: counter)
+            quote.saveData { success in
+                if success {
+                    print("dislike saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
+            }
+        }
     }
     
     func userHasLiked() -> Bool {
@@ -241,40 +300,6 @@ class QuoteDetailTableViewController: UITableViewController {
         return counter
     }
     
-    @IBAction func dislikeButtonPressed(_ sender: UIButton) {
-        var counter: Int = -1
-        if !userHasDisliked() {
-            quote.numOfDislikes += 1
-            quote.dislikedBy.append(Auth.auth().currentUser!.uid)
-            quote.saveData { success in
-                if success {
-                    print("dislike saved")
-                    self.updateUserInterface()
-                } else {
-                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
-                }
-            }
-        }
-        else {
-            quote.numOfDislikes -= 1
-//            for index in 0..<quote.dislikedBy.count {
-//                if quote.dislikedBy[index] == Auth.auth().currentUser!.uid {
-//                    counter = index
-//                }
-//            }
-            counter = returnUserIndex(likeOrDislikeList: quote.dislikedBy)
-            quote.dislikedBy.remove(at: counter)
-            quote.saveData { success in
-                if success {
-                    print("dislike saved")
-                    self.updateUserInterface()
-                } else {
-                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
-                }
-            }
-        }
-    }
-    
     @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
         quote.deleteData { (success) in
             if success {
@@ -285,6 +310,18 @@ class QuoteDetailTableViewController: UITableViewController {
                 print("delete unsuccessful")
             }
         }
+    }
+    @IBAction func titleChanged(_ sender: UITextField) {
+        changedText()
+    }
+    
+    
+//    @IBAction func saidByChanged(_ sender: UITextField) {
+        
+//    }
+    
+    @IBAction func saidByChanged(_ sender: UITextField) {
+        changedText()
     }
     
     

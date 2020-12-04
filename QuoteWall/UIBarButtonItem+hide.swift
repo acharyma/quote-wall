@@ -12,4 +12,9 @@ extension UIBarButtonItem {
         self.isEnabled = false
         self.tintColor = .clear
     }
+    
+    func show() {
+        self.isEnabled = true
+        self.tintColor = .systemIndigo
+    }
 }
