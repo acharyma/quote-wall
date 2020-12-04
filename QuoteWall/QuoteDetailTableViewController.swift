@@ -30,6 +30,7 @@ class QuoteDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quoteTextView.delegate = self
         
         if quote == nil {
             quote = Quote()
@@ -56,7 +57,7 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     func changedText() {
-        if titleTextField.text?.count == 0 || saidByTextField.text?.count == 0 {
+        if titleTextField.text?.count == 0 || quoteTextView.text?.count == 0 || saidByTextField.text?.count == 0 {
             saveBarButton.hide()
         }
         else {
@@ -326,6 +327,12 @@ class QuoteDetailTableViewController: UITableViewController {
     
     
     
+}
+
+extension QuoteDetailTableViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        changedText()
+    }
 }
 
 extension QuoteDetailTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
