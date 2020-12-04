@@ -16,6 +16,8 @@ class QuoteDetailTableViewController: UITableViewController {
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var dislikeButton: UIButton!
     
     
     @IBOutlet weak var picker: UIPickerView!
@@ -36,7 +38,7 @@ class QuoteDetailTableViewController: UITableViewController {
         self.picker.dataSource = self
         
         pickerData = ["Music", "Movie", "Book", "TV", "Life", "Other"]
-        selectedCategory = "Music"
+        selectedCategory = "Music" //default because if it isn't changed, it will be the first one
         
         updateUserInterface()
         
@@ -50,12 +52,42 @@ class QuoteDetailTableViewController: UITableViewController {
     
     
     func updateUserInterface() {
+        var testLike: Bool = false
+        var testDislike: Bool = false
+
+        
         titleTextField.text = quote.title
         quoteTextView.text = quote.quote
         saidByTextField.text = quote.person
         totalLikesLabel.text = "Total Likes: \(quote.numOfLikes ?? 0) Total Dislikes: \(quote.numOfDislikes ?? 0)"
         
         print(quote.documentID)
+        for index in 0..<quote.likedBy.count {
+            if quote.likedBy[index] == Auth.auth().currentUser!.uid {
+                testLike = true
+            }
+        }
+        
+        for index in 0..<quote.dislikedBy.count {
+            if quote.dislikedBy[index] == Auth.auth().currentUser!.uid {
+                testDislike = true
+            }
+        }
+        
+        if(testLike) {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+        }
+        else {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+        }
+        
+        if(testDislike) {
+            dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: .normal)
+        }
+        else {
+            dislikeButton.setImage(UIImage(systemName: "hand.thumbsdown"), for: .normal)
+        }
+        
         
         if quote.documentID == "" { //new quote
             addBordersToEditableObjects()
@@ -132,25 +164,68 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        quote.numOfLikes += 1
-        quote.saveData { success in
-            if success {
-                print("like saved")
-                self.updateUserInterface()
-            } else {
-                print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+        var counter: Int = -1
+        if !quote.likedBy.contains(Auth.auth().currentUser!.uid) {
+            quote.numOfLikes += 1
+            quote.likedBy.append(Auth.auth().currentUser!.uid)
+            quote.saveData { success in
+                if success {
+                    print("like saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
             }
         }
+        else {
+            quote.numOfLikes -= 1
+            for index in 0..<quote.likedBy.count {
+                if quote.likedBy[index] == Auth.auth().currentUser!.uid {
+                    counter = index
+                }
+            }
+            quote.likedBy.remove(at: counter)
+            quote.saveData { success in
+                if success {
+                    print("like saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
+            }
+        }
+        
     }
     
     @IBAction func dislikeButtonPressed(_ sender: UIButton) {
-        quote.numOfDislikes += 1
-        quote.saveData { success in
-            if success {
-                print("dislike saved")
-                self.updateUserInterface()
-            } else {
-                print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+        var counter: Int = -1
+        if !quote.dislikedBy.contains(Auth.auth().currentUser!.uid) {
+            quote.numOfDislikes += 1
+            quote.dislikedBy.append(Auth.auth().currentUser!.uid)
+            quote.saveData { success in
+                if success {
+                    print("dislike saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
+            }
+        }
+        else {
+            quote.numOfDislikes -= 1
+            for index in 0..<quote.dislikedBy.count {
+                if quote.dislikedBy[index] == Auth.auth().currentUser!.uid {
+                    counter = index
+                }
+            }
+            quote.dislikedBy.remove(at: counter)
+            quote.saveData { success in
+                if success {
+                    print("dislike saved")
+                    self.updateUserInterface()
+                } else {
+                    print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
+                }
             }
         }
     }

@@ -244,6 +244,8 @@
                     <connections>
                         <outlet property="cancelBarButton" destination="ZVg-s1-a1V" id="YTH-3G-kcM"/>
                         <outlet property="deleteButton" destination="LaF-cH-8lI" id="5zs-zO-QGj"/>
+                        <outlet property="dislikeButton" destination="PTw-RK-YJI" id="mrw-Fk-f1b"/>
+                        <outlet property="likeButton" destination="9nK-ny-gWU" id="43i-YR-FLE"/>
                         <outlet property="picker" destination="Ucb-Wq-XwX" id="GLn-He-cyd"/>
                         <outlet property="quoteTextView" destination="rUU-8E-LQQ" id="PlQ-pr-eL9"/>
                         <outlet property="saidByTextField" destination="Ne6-aR-eNw" id="1gG-v0-ck0"/>

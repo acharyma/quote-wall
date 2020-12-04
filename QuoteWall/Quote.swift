@@ -14,6 +14,7 @@ class Quote {
     var person: String
     var category: String
     var likedBy: [String]
+    var dislikedBy: [String]
     var numOfLikes: Int
     var numOfDislikes: Int
     var createdOn: Date
@@ -25,15 +26,16 @@ class Quote {
         //convert date
         let timeIntervalDate = createdOn.timeIntervalSince1970
         
-        return ["title": title, "quote": quote, "person": person, "category": category, "likedBy": likedBy, "numOfLikes": numOfLikes, "numOfDislikes": numOfDislikes, "createdOn": timeIntervalDate, "postingUserID": postingUserID, "documentID":documentID]
+        return ["title": title, "quote": quote, "person": person, "category": category, "likedBy": likedBy, "dislikedBy": dislikedBy, "numOfLikes": numOfLikes, "numOfDislikes": numOfDislikes, "createdOn": timeIntervalDate, "postingUserID": postingUserID, "documentID":documentID]
     }
     
-    init(title: String, quote: String, person: String, category: String, likedBy: [String], numOfLikes: Int, numOfDislikes: Int, createdOn: Date, postingUserID: String, documentID: String) {
+    init(title: String, quote: String, person: String, category: String, likedBy: [String], dislikedBy: [String], numOfLikes: Int, numOfDislikes: Int, createdOn: Date, postingUserID: String, documentID: String) {
         self.title = title
         self.quote = quote
         self.person = person
         self.category = category
         self.likedBy = likedBy
+        self.dislikedBy = dislikedBy
         self.numOfLikes = numOfLikes
         self.numOfDislikes = numOfDislikes
         self.createdOn = createdOn
@@ -47,16 +49,17 @@ class Quote {
         let person = dictionary["person"] as! String? ?? ""
         let category = dictionary["category"] as! String? ?? ""
         let likedBy = dictionary["likedBy"] as! [String]? ?? []
+        let dislikedBy = dictionary["dislikedBy"] as! [String]? ?? []
         let numOfLikes = dictionary["numOfLikes"] as! Int? ?? 0
         let numOfDislikes = dictionary["numOfDislikes"] as! Int? ?? 0
         let timeIntervalDate = dictionary["createdOn"] as! TimeInterval? ?? TimeInterval()
         let createdOn = Date(timeIntervalSince1970: timeIntervalDate)
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
-        self.init(title: title, quote: quote, person: person, category: category, likedBy: likedBy, numOfLikes: numOfLikes, numOfDislikes: numOfDislikes, createdOn: createdOn, postingUserID: postingUserID, documentID: "")
+        self.init(title: title, quote: quote, person: person, category: category, likedBy: likedBy, dislikedBy: dislikedBy, numOfLikes: numOfLikes, numOfDislikes: numOfDislikes, createdOn: createdOn, postingUserID: postingUserID, documentID: "")
     }
     
     convenience init() {
-        self.init(title: "", quote: "", person: "", category: "", likedBy: [], numOfLikes: 0, numOfDislikes: 0, createdOn: Date(), postingUserID: "", documentID: "")
+        self.init(title: "", quote: "", person: "", category: "", likedBy: [], dislikedBy: [], numOfLikes: 0, numOfDislikes: 0, createdOn: Date(), postingUserID: "", documentID: "")
     }
     
     func saveData(completion: @escaping (Bool) -> ())  {
@@ -111,9 +114,6 @@ class Quote {
         }
     }
     
-    func saveLikes(completion: @escaping (Bool) -> ()) {
-        
-    }
     
     
 }
