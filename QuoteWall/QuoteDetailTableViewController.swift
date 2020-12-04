@@ -91,6 +91,9 @@ class QuoteDetailTableViewController: UITableViewController {
         
         if quote.documentID == "" { //new quote
             addBordersToEditableObjects()
+            likeButton.isHidden = true
+            dislikeButton.isHidden = true
+            deleteButton.hide()
 //            TODO:- HIDE Thumbs Up and Down
         }
         else {
@@ -99,12 +102,17 @@ class QuoteDetailTableViewController: UITableViewController {
                 self.navigationItem.leftItemsSupplementBackButton = false
                 saveBarButton.title = "Update"
                 addBordersToEditableObjects()
-//                deleteButton.isHidden = false
+                likeButton.isHidden = false
+                dislikeButton.isHidden = false
             }
             else { //quote posted by different user
                 print("quote postingUserID is \(quote.postingUserID) and currentUser is \(Auth.auth().currentUser?.uid)")
                 saveBarButton.hide()
                 cancelBarButton.hide()
+                deleteButton.hide()
+                
+                likeButton.isHidden = false
+                dislikeButton.isHidden = false
 
                 titleTextField.isEnabled = false
                 titleTextField.borderStyle = .none
@@ -124,9 +132,9 @@ class QuoteDetailTableViewController: UITableViewController {
     
 //    USE BELOW FOR THE FUNCTION -- if want to
     func addBordersToEditableObjects() {
-//        titleTextField.addBorder(width: 0.5, radius: 5.0, color: .black)
-//        quoteTextView.addBorder(width: 0.5, radius: 5.0, color: .black)
-//        saidByTextField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        titleTextField.addBorder(width: 0.5, radius: 5.0, color: .black)
+        quoteTextView.addBorder(width: 0.5, radius: 5.0, color: .black)
+        saidByTextField.addBorder(width: 0.5, radius: 5.0, color: .black)
     }
     
     func updateFromUserInterface() {
@@ -142,6 +150,7 @@ class QuoteDetailTableViewController: UITableViewController {
     }
     
     func leaveViewController() {
+        print("leave view controller called")
         let isPresentingInAddMode = presentingViewController is UINavigationController
         if isPresentingInAddMode {
             dismiss(animated: true, completion: nil)
@@ -151,8 +160,14 @@ class QuoteDetailTableViewController: UITableViewController {
         }
     }
     
+    
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
         updateFromUserInterface()
+        if quote.title.contains(" ") {
+            self.oneButtonAlert(title: "Title Error", message: "Please enter only one word for the title!")
+            return
+        }
+        
         
         quote.saveData { success in
             if success {
@@ -165,7 +180,7 @@ class QuoteDetailTableViewController: UITableViewController {
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         var counter: Int = -1
-        if !quote.likedBy.contains(Auth.auth().currentUser!.uid) {
+        if !userHasLiked() {
             quote.numOfLikes += 1
             quote.likedBy.append(Auth.auth().currentUser!.uid)
             quote.saveData { success in
@@ -179,11 +194,12 @@ class QuoteDetailTableViewController: UITableViewController {
         }
         else {
             quote.numOfLikes -= 1
-            for index in 0..<quote.likedBy.count {
-                if quote.likedBy[index] == Auth.auth().currentUser!.uid {
-                    counter = index
-                }
-            }
+//            for index in 0..<quote.likedBy.count {
+//                if quote.likedBy[index] == Auth.auth().currentUser!.uid {
+//                    counter = index
+//                }
+//            }
+            counter = returnUserIndex(likeOrDislikeList: quote.likedBy)
             quote.likedBy.remove(at: counter)
             quote.saveData { success in
                 if success {
@@ -197,9 +213,37 @@ class QuoteDetailTableViewController: UITableViewController {
         
     }
     
+    func userHasLiked() -> Bool {
+        if(quote.likedBy.contains(Auth.auth().currentUser!.uid)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func userHasDisliked() -> Bool {
+        if(quote.dislikedBy.contains(Auth.auth().currentUser!.uid)) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func returnUserIndex(likeOrDislikeList: [String]) -> Int {
+        var counter = -1
+        for index in 0..<likeOrDislikeList.count {
+            if likeOrDislikeList[index] == Auth.auth().currentUser!.uid {
+                counter = index
+            }
+        }
+        return counter
+    }
+    
     @IBAction func dislikeButtonPressed(_ sender: UIButton) {
         var counter: Int = -1
-        if !quote.dislikedBy.contains(Auth.auth().currentUser!.uid) {
+        if !userHasDisliked() {
             quote.numOfDislikes += 1
             quote.dislikedBy.append(Auth.auth().currentUser!.uid)
             quote.saveData { success in
@@ -213,11 +257,12 @@ class QuoteDetailTableViewController: UITableViewController {
         }
         else {
             quote.numOfDislikes -= 1
-            for index in 0..<quote.dislikedBy.count {
-                if quote.dislikedBy[index] == Auth.auth().currentUser!.uid {
-                    counter = index
-                }
-            }
+//            for index in 0..<quote.dislikedBy.count {
+//                if quote.dislikedBy[index] == Auth.auth().currentUser!.uid {
+//                    counter = index
+//                }
+//            }
+            counter = returnUserIndex(likeOrDislikeList: quote.dislikedBy)
             quote.dislikedBy.remove(at: counter)
             quote.saveData { success in
                 if success {
@@ -229,6 +274,19 @@ class QuoteDetailTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func deleteButtonPressed(_ sender: UIBarButtonItem) {
+        quote.deleteData { (success) in
+            if success {
+                print("deleted successfully")
+                self.leaveViewController()
+            }
+            else {
+                print("delete unsuccessful")
+            }
+        }
+    }
+    
     
     
 }

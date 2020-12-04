@@ -51,6 +51,10 @@ class QuotesListViewController: UIViewController {
             let selectedIndexPath = tableView.indexPathForSelectedRow
             destination.quote = quotes.quoteArray[selectedIndexPath!.row]
         }
+        else if segue.identifier == "PodiumDetail" {
+            let destination = segue.destination as! PodiumViewController
+            destination.quotes = quotes.quoteArray
+        }
     }
 
     // VITAL: This gist includes key changes to make sure "cancel" works with iOS 13.
@@ -88,8 +92,7 @@ extension QuotesListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuoteCell", for: indexPath)
-        cell.textLabel?.text = quotes.quoteArray[indexPath.row].title
-        //TODO:- use subtitle and put person there
+        cell.textLabel?.text = "\(quotes.quoteArray[indexPath.row].person) on \(quotes.quoteArray[indexPath.row].title)"
         return cell
     }
 }

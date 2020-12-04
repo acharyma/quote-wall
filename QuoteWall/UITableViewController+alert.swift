@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+extension UITableViewController {
     func oneButtonAlert(title: String, message: String){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
