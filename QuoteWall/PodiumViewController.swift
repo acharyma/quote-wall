@@ -23,11 +23,6 @@ class PodiumViewController: UIViewController {
         }
         
         quotes.sort(by: { $0.numOfLikes > $1.numOfLikes })
-        
-        updateUserInterface()
-    }
-    func updateUserInterface() {
-        //TODO:- update user interface
     }
 }
 

@@ -55,6 +55,10 @@ class QuotesListViewController: UIViewController {
             let destination = segue.destination as! PodiumViewController
             destination.quotes = quotes.quoteArray
         }
+        else if segue.identifier == "ProfileDetail" {
+            let destination = segue.destination as! ProfileViewController
+            destination.quotes = quotes.quoteArray
+        }
     }
 
     // VITAL: This gist includes key changes to make sure "cancel" works with iOS 13.

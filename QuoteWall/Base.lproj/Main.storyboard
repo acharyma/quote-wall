@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ifr-WP-JXM">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QuoteCell" textLabel="eSN-vX-j3l" style="IBUITableViewCellStyleDefault" id="6aZ-ze-vEs">
@@ -52,6 +52,14 @@
                             <constraint firstItem="Ifr-WP-JXM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XdB-3p-Isf"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem image="hand.thumbsup.fill" catalog="system" id="RHj-iO-hUc">
+                            <color key="tintColor" systemColor="systemIndigoColor"/>
+                            <connections>
+                                <segue destination="9HA-Y3-lG8" kind="show" identifier="ProfileDetail" id="5q4-G3-pf8"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Quotes" id="AT0-2D-Fa1">
                         <leftBarButtonItems>
                             <barButtonItem title="Sign Out" id="avm-EH-isw">
@@ -73,7 +81,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Ifr-WP-JXM" id="d6Z-jk-xW3"/>
                     </connections>
@@ -81,6 +89,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="78.348214285714278"/>
+        </scene>
+        <!--Liked Quotes-->
+        <scene sceneID="Tyt-Zp-X9i">
+            <objects>
+                <viewController id="9HA-Y3-lG8" customClass="ProfileViewController" customModule="QuoteWall" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bjp-Qp-DAH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PBd-gA-a33">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProfileCell" rowHeight="100" id="Xhp-tK-yLg" customClass="ProfileTableViewCell" customModule="QuoteWall" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xhp-tK-yLg" id="SHU-tX-vY4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="&quot;This will be the quote&quot; - Manogya" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJq-Py-AiK">
+                                                    <rect key="frame" x="5" y="5" width="404" height="90"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="textColor" systemColor="labelColor"/>
+                                                    <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="36"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tJq-Py-AiK" firstAttribute="leading" secondItem="SHU-tX-vY4" secondAttribute="leading" constant="5" id="79f-Hw-plL"/>
+                                                <constraint firstAttribute="bottom" secondItem="tJq-Py-AiK" secondAttribute="bottom" constant="5" id="LUg-50-Ucp"/>
+                                                <constraint firstAttribute="trailing" secondItem="tJq-Py-AiK" secondAttribute="trailing" constant="5" id="r9F-Nv-01f"/>
+                                                <constraint firstItem="tJq-Py-AiK" firstAttribute="top" secondItem="SHU-tX-vY4" secondAttribute="top" constant="5" id="z99-dA-a77"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textView" destination="tJq-Py-AiK" id="pbT-h2-bPW"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sVP-fL-D6S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PBd-gA-a33" firstAttribute="leading" secondItem="sVP-fL-D6S" secondAttribute="leading" id="5pB-A3-WuT"/>
+                            <constraint firstItem="PBd-gA-a33" firstAttribute="top" secondItem="sVP-fL-D6S" secondAttribute="top" id="9f0-j4-7uM"/>
+                            <constraint firstItem="sVP-fL-D6S" firstAttribute="bottom" secondItem="PBd-gA-a33" secondAttribute="bottom" id="PD9-c3-z3i"/>
+                            <constraint firstItem="sVP-fL-D6S" firstAttribute="trailing" secondItem="PBd-gA-a33" secondAttribute="trailing" id="rzE-NF-kdl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Liked Quotes" id="yXK-Ef-dv2"/>
+                    <connections>
+                        <outlet property="tableView" destination="PBd-gA-a33" id="956-AL-xqH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csS-5Y-R8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="498"/>
         </scene>
         <!--Quote Detail Table View Controller-->
         <scene sceneID="avk-3s-bqU">
@@ -325,7 +392,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z1W-TN-SMc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PodiumCell" rowHeight="200" id="Z60-8k-Cvc" customClass="PodiumTableViewCell" customModule="QuoteWall" customModuleProvider="target">

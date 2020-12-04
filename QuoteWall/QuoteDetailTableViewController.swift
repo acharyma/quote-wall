@@ -41,19 +41,21 @@ class QuoteDetailTableViewController: UITableViewController {
         pickerData = ["Music", "Movie", "Book", "TV", "Life", "Other"]
         selectedCategory = "Music" //default because if it isn't changed, it will be the first one
         
-        updateUserInterface()
+        
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if titleTextField.text?.count == 0 || saidByTextField.text?.count == 0 {
+        if titleTextField.text?.count == 0 || quoteTextView.text?.count == 0 || saidByTextField.text?.count == 0 {
             saveBarButton.hide()
         }
         else {
             saveBarButton.show()
         }
+        
+        updateUserInterface()
     }
     
     func changedText() {
@@ -122,6 +124,7 @@ class QuoteDetailTableViewController: UITableViewController {
                 print("quote postingUserID is \(quote.postingUserID) and currentUser is \(Auth.auth().currentUser?.uid)")
                 self.navigationItem.leftItemsSupplementBackButton = false
                 saveBarButton.title = "Update"
+                saveBarButton.show()
                 addBordersToEditableObjects()
                 likeButton.isHidden = false
                 dislikeButton.isHidden = false
