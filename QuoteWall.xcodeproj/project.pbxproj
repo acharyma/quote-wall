@@ -73,6 +73,45 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		7E7437E6257C10AA00A5CCD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E74375E2574840700A5CCD1 /* Quote.swift */,
+				7E74376125748FEB00A5CCD1 /* Quotes.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E7437E7257C10F400A5CCD1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7ED339D625746E13004C29B4 /* QuotesListViewController.swift */,
+				7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */,
+				7E7437BB257AA21200A5CCD1 /* PodiumViewController.swift */,
+				7E7437C1257AE74200A5CCD1 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7E7437E8257C111400A5CCD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E7437BE257AB14B00A5CCD1 /* PodiumTableViewCell.swift */,
+				7E7437C4257AEC9500A5CCD1 /* ProfileTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E7437E9257C112F00A5CCD1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7E74379225799DCE00A5CCD1 /* UIBarButtonItem+hide.swift */,
+				7E7437B425799DF900A5CCD1 /* UIView+addBorder.swift */,
+				7E7437B725799E2500A5CCD1 /* UITableViewController+alert.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		7ED339C625746E13004C29B4 = {
 			isa = PBXGroup;
 			children = (
@@ -96,20 +135,13 @@
 			children = (
 				7ED339D225746E13004C29B4 /* AppDelegate.swift */,
 				7ED339D425746E13004C29B4 /* SceneDelegate.swift */,
-				7E74375E2574840700A5CCD1 /* Quote.swift */,
-				7E74376125748FEB00A5CCD1 /* Quotes.swift */,
-				7ED339D625746E13004C29B4 /* QuotesListViewController.swift */,
-				7E74375B2574833000A5CCD1 /* QuoteDetailTableViewController.swift */,
-				7E7437BB257AA21200A5CCD1 /* PodiumViewController.swift */,
-				7E7437BE257AB14B00A5CCD1 /* PodiumTableViewCell.swift */,
-				7E7437C1257AE74200A5CCD1 /* ProfileViewController.swift */,
-				7E7437C4257AEC9500A5CCD1 /* ProfileTableViewCell.swift */,
+				7E7437E6257C10AA00A5CCD1 /* Models */,
+				7E7437E7257C10F400A5CCD1 /* Controllers */,
+				7E7437E8257C111400A5CCD1 /* Views */,
 				7ED339D825746E13004C29B4 /* Main.storyboard */,
 				7ED339DB25746E20004C29B4 /* Assets.xcassets */,
 				7ED339DD25746E20004C29B4 /* LaunchScreen.storyboard */,
-				7E74379225799DCE00A5CCD1 /* UIBarButtonItem+hide.swift */,
-				7E7437B425799DF900A5CCD1 /* UIView+addBorder.swift */,
-				7E7437B725799E2500A5CCD1 /* UITableViewController+alert.swift */,
+				7E7437E9257C112F00A5CCD1 /* Utilities */,
 				7ED339E025746E20004C29B4 /* Info.plist */,
 				7E7437552574731300A5CCD1 /* GoogleService-Info.plist */,
 			);
