@@ -130,7 +130,7 @@ extension QuotesListViewController: FUIAuthDelegate {
         
         // Create a frame for a UIImageView to hold our logo
         let marginInsets: CGFloat = 16 // logo will be 16 points from L and R margins
-        let imageHeight: CGFloat = 500 // the height of our logo - 225
+        let imageHeight: CGFloat = 400 // the height of our logo - 225
         let imageY = self.view.center.y - imageHeight // places bottom of UIImageView in the center of the login screen
         let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: imageY + imageHeight - (16 * marginInsets), width: self.view.frame.width - (marginInsets*2), height: imageHeight)
         
