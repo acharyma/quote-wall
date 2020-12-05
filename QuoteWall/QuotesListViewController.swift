@@ -119,4 +119,26 @@ extension QuotesListViewController: FUIAuthDelegate {
                 print("^^^ We signed in with the user \(user.email ?? "unknown e-mail")")
             }
         }
+    
+    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+        
+        // Create an instance of the FirebaseAuth login view controller
+        let loginViewController = FUIAuthPickerViewController(authUI: authUI)
+        
+        // Set background color to white
+        loginViewController.view.backgroundColor = UIColor.white
+        
+        // Create a frame for a UIImageView to hold our logo
+        let marginInsets: CGFloat = 16 // logo will be 16 points from L and R margins
+        let imageHeight: CGFloat = 500 // the height of our logo - 225
+        let imageY = self.view.center.y - imageHeight // places bottom of UIImageView in the center of the login screen
+        let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: imageY + imageHeight - (16 * marginInsets), width: self.view.frame.width - (marginInsets*2), height: imageHeight)
+        
+        // Create the UIImageView using the frame created above & add the "logo" image
+        let logoImageView = UIImageView(frame: logoFrame)
+        logoImageView.image = UIImage(named: "logo")
+        logoImageView.contentMode = .scaleAspectFit // Set imageView to Aspect Fit
+        loginViewController.view.addSubview(logoImageView) // Add ImageView to the login controller's main view
+        return loginViewController
+    }
 }
