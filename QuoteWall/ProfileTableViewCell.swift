@@ -10,6 +10,7 @@ import UIKit
 class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var textView: UITextView!
     
+    
     var quote: Quote! {
         didSet {
             textView.text = "\(quote.quote) - \(quote.person)"

@@ -151,6 +151,7 @@ class QuoteDetailTableViewController: UITableViewController {
                 picker.isHidden = true
                 saidByTextField.isEnabled = false
                 saidByTextField.backgroundColor = .white
+                saidByTextField.borderStyle = .none
 
                 titleTextField.backgroundColor = .white
             }

@@ -14,6 +14,7 @@ class PodiumTableViewCell: UITableViewCell {
     @IBOutlet weak var dislikeCountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    
     var quote: Quote! {
         didSet {
             titleLabel.text = "\(quote.person) on \(quote.title)"
@@ -23,5 +24,10 @@ class PodiumTableViewCell: UITableViewCell {
             dislikeCountLabel.text = "\(quote.numOfDislikes)"
         }
     }
-
+    
+    var updateTitleLabel: Int! {
+        didSet{
+            titleLabel.text = "\(updateTitleLabel!). \(quote.person) on \(quote.title)"
+        }
+    }
 }

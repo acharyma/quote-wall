@@ -34,6 +34,7 @@ extension PodiumViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PodiumCell", for: indexPath) as! PodiumTableViewCell
         cell.quote = quotes[indexPath.row]
+        cell.updateTitleLabel = indexPath.row + 1
         return cell
     }
     
